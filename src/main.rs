@@ -3,10 +3,15 @@ use cfg_if::cfg_if;
 cfg_if! {
     if #[cfg(feature = "ssr")] {
         use leptos::*;
-        use leptos_start::app::*;
         use actix_files::{Files};
         use actix_web::*;
+        use leptos_igdb::{App, AppProps};
         use leptos_actix::{LeptosRoutes, generate_route_list};
+
+        #[get("/style.css")]
+        async fn css() -> impl Responder {
+            actix_files::NamedFile::open_async("./style/output.css").await
+        }
 
         #[actix_web::main]
         async fn main() -> std::io::Result<()> {

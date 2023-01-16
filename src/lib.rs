@@ -1,5 +1,31 @@
-pub mod app;
 use cfg_if::cfg_if;
+
+use leptos::*;
+use leptos_meta::*;
+use leptos_router::*;
+
+mod routes;
+use routes::game::*;
+use routes::index::*;
+
+#[component]
+pub fn App(cx: Scope) -> impl IntoView {
+    provide_meta_context(cx);
+    view! {
+        cx,
+        <Stylesheet id="leptos" href="/pkg/leptos_igdb.css"/>
+        <Title text="leptos-igdb"/>
+        <Meta name="description" content="Leptos implementation of a IGDB demo."/>
+        <Router>
+            <main>
+                <Routes>
+                    <Route path="" view=|cx| view! { cx,  <Index/> }/>
+                    <Route path="game/:id" view=|cx| view! { cx,  <Game/> }/>
+                </Routes>
+            </main>
+        </Router>
+    }
+}
 
 cfg_if! {
 if #[cfg(feature = "hydrate")] {
@@ -8,7 +34,6 @@ if #[cfg(feature = "hydrate")] {
 
     #[wasm_bindgen]
     pub fn hydrate() {
-      use app::*;
       use leptos::*;
 
       // initializes logging using the `log` crate
