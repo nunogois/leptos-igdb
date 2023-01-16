@@ -2,7 +2,7 @@
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 PATH=$PATH:/vercel/.cargo/bin
 
+rustup toolchain install nightly
+rustup default nightly
 rustup target add wasm32-unknown-unknown
-cargo install wasm-bindgen-cli
-cargo install --locked cargo-leptos
-cargo install --locked trunk
+cargo install cargo-leptos
