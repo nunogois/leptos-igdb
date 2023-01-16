@@ -5,4 +5,5 @@ PATH=$PATH:/vercel/.cargo/bin
 rustup toolchain install nightly
 rustup default nightly
 rustup target add wasm32-unknown-unknown
-cargo install cargo-leptos
+# cargo install cargo-leptos
+cargo install trunk
