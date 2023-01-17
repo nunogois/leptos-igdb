@@ -28,21 +28,34 @@ pub fn App(cx: Scope) -> impl IntoView {
 }
 
 cfg_if! {
-if #[cfg(feature = "hydrate")] {
+  if #[cfg(feature = "hydrate")] {
+    use wasm_bindgen::prelude::wasm_bindgen;
 
-  use wasm_bindgen::prelude::wasm_bindgen;
+      #[wasm_bindgen]
+      pub fn hydrate() {
+        use leptos::*;
 
-    #[wasm_bindgen]
-    pub fn hydrate() {
-      use leptos::*;
+        _ = console_log::init_with_level(log::Level::Debug);
+        console_error_panic_hook::set_once();
 
-      // initializes logging using the `log` crate
-      _ = console_log::init_with_level(log::Level::Debug);
-      console_error_panic_hook::set_once();
+        leptos::mount_to_body(move |cx| {
+            view! { cx, <App/> }
+        });
+      }
+  }
+  // else if #[cfg(feature = "csr")] {
+  //   use wasm_bindgen::prelude::wasm_bindgen;
 
-      leptos::mount_to_body(move |cx| {
-          view! { cx, <App/> }
-      });
-    }
-}
+  //   #[wasm_bindgen(start)]
+  //   pub fn main() {
+  //       use leptos::*;
+
+  //       _ = console_log::init_with_level(log::Level::Debug);
+  //       console_error_panic_hook::set_once();
+
+  //       mount_to_body(|cx| {
+  //           view! { cx, <App /> }
+  //       });
+  //   }
+  // }
 }
