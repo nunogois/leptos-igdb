@@ -17,7 +17,7 @@ pub fn App(cx: Scope) -> impl IntoView {
         <Title text="leptos-igdb"/>
         <Meta name="description" content="Leptos implementation of a IGDB demo."/>
         <Router>
-            <main>
+            <main class="w-full h-full flex justify-center bg-neutral-900 text-gray-100">
                 <Routes>
                     <Route path="" view=|cx| view! { cx,  <Index/> }/>
                     <Route path="game/:id" view=|cx| view! { cx,  <Game/> }/>

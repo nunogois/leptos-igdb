@@ -25,6 +25,10 @@ to go to your newly created project.
 
 Of course you should explore around the project structure, but the best place to start with your application code is in `src/app/mod.rs`.
 
+## Running project locally
+
+`npx tailwindcss -i ./style/main.css -o ./style/tailwind.css --watch & trunk serve --open &`
+
 ## Watch Tailwind
 
 `npx tailwindcss -i ./style/input.css -o ./style/output.css --watch`
