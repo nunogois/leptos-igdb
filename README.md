@@ -31,7 +31,7 @@ Of course you should explore around the project structure, but the best place to
 
 ## Watch Tailwind
 
-`npx tailwindcss -i ./style/input.css -o ./style/output.css --watch`
+`npx tailwindcss -i ./style/input.css -o ./style/tailwind.css --watch`
 
 ## Running your project
 

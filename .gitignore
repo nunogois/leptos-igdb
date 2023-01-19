@@ -17,5 +17,8 @@ test-results/
 end2end/playwright-report/
 playwright/.cache/
 
-## Tailwind output
+# Tailwind output
 /style/tailwind.css
+
+# env
+.env

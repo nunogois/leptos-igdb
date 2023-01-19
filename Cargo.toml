@@ -28,34 +28,20 @@ actix-web = { version = "4", features = ["macros"], optional = true }
 futures = { version = "0.3", optional = true }
 simple_logger = { version = "4.0", optional = true }
 
+# api dependencies
+serde = { version = "1", features = ["derive"] }
+gloo-net = { version = "0.2", features = ["http"] }
+reqwest = { version = "0.11", features = ["json"] }
+web-sys = { version = "0.3", features = ["AbortController", "AbortSignal"] }
+chrono = "0.4.23"
+dotenv = "0.15.0"
+dotenv_codegen = "0.15.0"
+
 [features]
 default = ["csr"]
-hydrate = [
-  "leptos/hydrate",
-  "leptos_meta/hydrate",
-  "leptos_router/hydrate",
-  "dep:wasm-bindgen",
-  "dep:console_log",
-  "dep:console_error_panic_hook",
-]
-csr = [
-  "leptos/csr",
-  "leptos_meta/csr",
-  "leptos_router/csr",
-  "dep:wasm-bindgen",
-  "dep:console_log",
-  "dep:console_error_panic_hook",
-]
-ssr = [
-  "leptos/ssr",
-  "leptos_meta/ssr",
-  "leptos_router/ssr",
-  "dep:leptos_actix",
-  "dep:actix-web",
-  "dep:actix-files",
-  "dep:futures",
-  "dep:simple_logger",
-]
+hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate", "dep:wasm-bindgen", "dep:console_log", "dep:console_error_panic_hook"]
+csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr", "dep:wasm-bindgen", "dep:console_log", "dep:console_error_panic_hook"]
+ssr = ["leptos/ssr", "leptos_meta/ssr", "leptos_router/ssr", "dep:leptos_actix", "dep:actix-web", "dep:actix-files", "dep:futures", "dep:simple_logger"]
 
 [package.metadata.cargo-all-features]
 denylist = [
@@ -84,7 +70,7 @@ site-root = "target/site"
 # Defaults to pkg	
 site-pkg-dir = "pkg"
 # [Optional] The source CSS file. If it ends with .sass or .scss then it will be compiled by dart-sass into CSS. The CSS is optimized by Lightning CSS before being written to <site-root>/<site-pkg>/app.css
-style-file = "style/output.css"
+style-file = "style/tailwind.css"
 # Assets source dir. All files found here will be copied and synchronized to site-root.
 # The assets-dir cannot have a sub directory with the same name/path as site-pkg-dir.
 #
