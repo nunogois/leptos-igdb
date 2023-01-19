@@ -1,5 +1,5 @@
 {
   "buildCommand": "./vercel/build.sh",
   "installCommand": "./vercel/install.sh",
-  "public": "dist"
+  "outputDirectory": "dist"
 }
