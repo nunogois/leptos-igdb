@@ -21,7 +21,11 @@ where
     let json = gloo_net::http::Request::get(&igdb_api_proxy(path))
         .header(
             "Authorization",
-            format!("Bearer {}", dotenv!("TOKEN")).as_str(),
+            format!(
+                "Bearer {}",
+                option_env!("TOKEN").unwrap_or(dotenv!("TOKEN"))
+            )
+            .as_str(),
         )
         .abort_signal(abort_signal.as_ref())
         .send()
