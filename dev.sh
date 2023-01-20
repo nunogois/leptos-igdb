@@ -1,1 +1,0 @@
-concurrently "npx tailwindcss -i ./style/main.css -o ./style/tailwind.css --watch" "trunk serve --open"

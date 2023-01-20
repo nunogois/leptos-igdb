@@ -1,6 +1,3 @@
-#[macro_use]
-extern crate dotenv_codegen;
-
 use cfg_if::cfg_if;
 
 use leptos::*;

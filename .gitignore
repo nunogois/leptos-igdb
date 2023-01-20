@@ -20,5 +20,5 @@ playwright/.cache/
 # Tailwind output
 /style/tailwind.css
 
-# env
-.env
+# internal scripts
+dev.sh
